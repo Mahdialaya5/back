@@ -5,6 +5,7 @@ exports.AddProduct = async (req, res) => {
         const NewProduct = new Product(req.body)
         NewProduct.Image = `${req.protocol}://${req.get("host")}/${req.file.path}`
         await NewProduct.save()
+        console.log(NewProduct)
       
         return res.status(201).send({ msg: 'Product created' })
 

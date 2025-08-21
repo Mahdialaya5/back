@@ -34,12 +34,13 @@ exports.RegisterUser = async (req, res) => {
 
 exports.Login=async(req,res)=>{
   try {
-  const {email,Password}=req.body
+  const {email,password}=req.body
   const UserExist = await User.findOne({ email })
   if (!UserExist){
      return res.status(400).send({msg:"bad credential"})}
-
-   const IsMatched= await bcrypt.compare(Password,UserExist.Password)
+console.log(password)
+console.log(UserExist.Password)
+   const IsMatched= await bcrypt.compare(password,UserExist.Password)
      if (!IsMatched){
         return res.status(400).send({msg:"bad credential"})
      }
