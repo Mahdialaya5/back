@@ -12,11 +12,9 @@ const OrderRoutes = require('./Routes/OrderRoutes')
 const cors = require('cors');
 
 
-
-// Active CORS pour autoriser localhost:3000
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true // si tu utilises des cookies ou des headers personnalisés
+  origin: '*',
+  credentials: true 
 }));
 
 ConnectDB()
